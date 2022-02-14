@@ -1,0 +1,64 @@
+// Outputs a number within the range of indexes 
+// return {integer} - index within the cereal data
+function getRandomIndex() {
+  var nameList = getColumn("Cereal Nutrition", "Name");
+  var index = randomNumber(0, nameList.length - 1);
+  return index;
+}
+
+// returns name at that index
+// index {integer} - location in list
+// return {string} - name at the index
+// picture {string} - image address 
+function getname(index) {
+  var nameList = getColumn("Cereal Nutrition", "Name");
+  var name = nameList[index];
+  return name;
+}
+
+// Outputs the location of a image of the cereal box
+// index {integer} - number of index of image you need
+function getCerealImage(index) {
+  var allPictures = getColumn("Cereal Nutrition", "Box Image");
+  var picture = allPictures[index];
+  return picture;
+}
+
+// Compares calories guessed to cereal and counts matches 
+// guess {integer} - user input the amount of calories 
+// index {integer} - number of other cereal with that many calories
+// correct {boolean} - confirms if guess was correct
+function checkCalories(guess, index) {
+  var correct = false;
+  var allCalories = getColumn("Cereal Nutrition", "Calories");
+  if (guess == allCalories[index]) {
+    correct = true;
+  }
+  return correct;
+}
+
+// Checks amount of calories 
+function allCaloriesCheck(guess) {
+  var allCalories = getColumn("Cereal Nutrition", "Calories");
+  var count = 0;
+  for (var i = 0; i < allCalories.length; i++) {
+    if (guess == allCalories[i]) {
+      count++;
+    }
+  }
+  return count;
+}
+
+console.log(getRandomIndex);
+console.log(getname);
+console.log(getCerealImage);
+console.log(checkCalories);
+console.log(allCaloriesCheck);
+
+
+
+
+
+
+
+//
